@@ -19,7 +19,7 @@
                 <li><a href="#tour">Tour</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
-                    <a href="">
+                    <a href="#">
                         More
                         <i class="nav-arrow-down ti-angle-down"></i>
                     </a>
@@ -32,13 +32,14 @@
             </ul>
             <!-- end:nav -->
             <!-- begin: search button -->
+            <div id="mobile-menu" class="search-mobile-btn">
+                <i class="menu-icon ti-menu"></i>
+            </div>
             <div class="search-btn">
                 <i class="search-button-icon ti-search"></i>
             </div>
 
-            <div id="mobile-menu" class="search-mobile-btn">
-                <i class="menu-icon ti-menu"></i>
-            </div>
+            
             <!-- end: search button -->
 
 
@@ -62,15 +63,15 @@
 
                 </p>
                 <div class="row member-list">
-                    <div class="col col-third text-center">
+                    <div class="col col-third s-col-full mt-32 text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/band/member/bandmember.jpg" alt="Name" class="member-img">
                     </div>
-                    <div class="col col-third text-center">
+                    <div class="col col-third s-col-full mt-32 text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/band/member/bandmember.jpg" alt="Name" class="member-img">
                     </div>
-                    <div class="col col-third text-center">
+                    <div class="col col-third s-col-full mt-32 text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/band/member/bandmember.jpg" alt="Name" class="member-img">
                     </div>
@@ -94,7 +95,7 @@
                     </ul>
                     <!-- Place tour -->
                     <div class="row places-list">
-                        <div class="col col-third">
+                        <div class="col col-third s-col-full mt-16">
                             <img src="./assets/img/places/place1/place1.jpg" alt="New York" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">New York</h3>
@@ -105,7 +106,7 @@
                         </div>
                         
 
-                        <div class="col col-third">
+                        <div class="col col-third s-col-full mt-16">
                             <img src="./assets/img/places/place2/place2.jpeg" alt="Paris" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">Paris</h3>
@@ -115,7 +116,7 @@
                             </div>
                         </div>
 
-                        <div class="col col-third">
+                        <div class="col col-third s-col-full mt-16">
                             <img src="./assets/img/places/place3/place3.jpeg" alt="San Francisco" class="place-img">
                             <div class="place-body">
                                 <h3 class="place-heading">San Francisco</h3>
@@ -254,17 +255,35 @@
     <script>
         var header = document.getElementById ('header');
         var mobileMenu = document.getElementById ('mobile-menu');
-        
-        mobileMenu.onclick = function () {
-            console.log(header.clientHeight);
-            // var isClosed = header.clientHeight === 46;
-            // if (isClosed) {
-            //     header.style.height = 'auto';
-            // } else {
-            //     header.style.height = null;
-            // }
-        }
+        var headerHeight = header.clientHeight;
 
+
+        // đóng/mở mobile menu
+        mobileMenu.onclick = function () {
+            
+            var isClosed = header.clientHeight === headerHeight;
+            if (isClosed) {
+                header.style.height = 'auto';
+            } else {
+                header.style.height = null;
+            }
+        }
+        // tự động đóng khi chọn menu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+        for (var i = 0; i < menuItems.length; i++) {
+            var menuItems = menuItems[i];
+            
+            
+            menuItems.onclick = function() {
+                var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+                if (isParentMenu) {
+                    event.preventDefault();
+                } else {
+                    header.style.height = null;
+                }
+
+            }
+        }
     </script>
 
 </body>

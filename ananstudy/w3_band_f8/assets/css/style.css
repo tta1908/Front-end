@@ -37,6 +37,10 @@ html {
 .mt-16{
     margin-top: 16px;
 }
+
+.mt-32 {
+    margin-top: 32px;
+}
 .col{
     float: left;
     padding-left: 8px;
@@ -68,7 +72,6 @@ html {
     left: 0;
     right: 0;
     z-index: 1;
-    overflow: hidden;
 }
 #nav{
     display: inline-block;
@@ -123,6 +126,14 @@ html {
 #nav .nav-arrow-down{
     font-size: 12px;
 }
+
+#header .search-mobile-btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+}
+
 #header .search-mobile-btn,
 #header .search-btn{
     padding: 0 21px;
@@ -151,7 +162,7 @@ html {
 }
 #slider {
     position: relative;
-    background: url(/assets/img/sliders/slider-chicago/chicago.jpg) top center / cover no-repeat;
+    background: url(../img/sliders/chicago.jpeg) top center / cover no-repeat;
     margin-top: 46px;
     padding-top: 50%;
 }
@@ -212,7 +223,7 @@ html {
 }
 
 #content .member-list{
-    margin-top: 48px;  
+    margin-top: 32px;  
 }
 
 
@@ -263,7 +274,7 @@ html {
  }
 
 .places-list{
-    margin-top: 32px;
+    margin-top: 16px;
     
 }
 
