@@ -184,6 +184,7 @@ html {
     font-size: 15px;
     font-size: 300;
     margin-top: 25px;
+    text-shadow: 0 0 1px #000;
 }
 #content {
     
@@ -316,6 +317,8 @@ html {
     display: inline-block;
     margin-top: 15px;
     border: none;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 .place-buy-btn:hover{
@@ -344,6 +347,14 @@ html {
 .contact-info i[class*="ti-"] {
     width: 30px;
     display: inline-block;
+}
+.contact-info a {
+    color: #101aef;
+    opacity: 0.8;
+}
+
+.contact-info a:hover {
+    opacity: 1;
 }
 
 .contact-form .form-submit-btn{
